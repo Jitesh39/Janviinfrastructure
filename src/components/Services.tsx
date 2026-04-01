@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { 
   BuildingOffice2Icon, 
   ArchiveBoxIcon, 
@@ -13,44 +14,52 @@ import {
 
 const services = [
   {
+    slug: "pre-engineered-buildings",
     title: "Pre-Engineered Building Mfr.",
     description: "Customized PEB solutions offering speed, durability, and cost-effectiveness.",
     icon: <BuildingOffice2Icon className="w-10 h-10 text-secondary" />
   },
   {
+    slug: "cold-storage-manufacturer",
     title: "Cold Storage Manufacturer",
     description: "Advanced thermally insulated structures optimized for preservation.",
     icon: <ArchiveBoxIcon className="w-10 h-10 text-secondary" />
   },
   {
+    slug: "warehouse-manufacturer",
     title: "Warehouse Manufacturer",
     description: "Large-scale godowns built for high capacity and seamless logistics.",
     icon: <HomeModernIcon className="w-10 h-10 text-secondary" />
   },
   {
+    slug: "multi-storey-building",
     title: "Multi-Storey Building Mfr.",
     description: "Robust steel frames for high-rise industrial and commercial needs.",
     icon: <BuildingOffice2Icon className="w-10 h-10 text-secondary" />
   },
   {
-    title: "Factory Construction",
-    description: "Turnkey setups for manufacturing units tailored to operational flows.",
-    icon: <WrenchScrewdriverIcon className="w-10 h-10 text-secondary" />
+    slug: "fire-staircase-manufacturer",
+    title: "Fire Staircase Manufacturer",
+    description: "High-quality, durable fire escape staircases with stringent safety compliances.",
+    icon: <ArrowTrendingUpIcon className="w-10 h-10 text-secondary" />
   },
   {
+    slug: "tin-sheds-manufacturing",
     title: "Tin Sheds & Manufacturing",
     description: "Durable tin sheds and precision manufacturing & structural services.",
     icon: <RectangleStackIcon className="w-10 h-10 text-secondary" />
   },
   {
+    slug: "sign-board-manufacturer",
     title: "Sign Board Manufacturer",
     description: "Commercial structural signboards and high-visibility fixtures.",
     icon: <QueueListIcon className="w-10 h-10 text-secondary" />
   },
   {
-    title: "Special Structures",
-    description: "Fire Staircases and Foot Over Bridges with stringent safety compliances.",
-    icon: <ArrowTrendingUpIcon className="w-10 h-10 text-secondary" />
+    slug: "foot-over-bridge",
+    title: "Foot Over Bridge",
+    description: "Robust and secure pedestrian bridges designed for high-traffic industrial areas.",
+    icon: <WrenchScrewdriverIcon className="w-10 h-10 text-secondary" />
   }
 ];
 
@@ -94,18 +103,20 @@ export default function Services() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -10 }}
-              className="bg-white dark:bg-slate-900 rounded-xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-none hover:shadow-2xl hover:shadow-primary/20 dark:hover:shadow-primary/20 transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group cursor-pointer relative overflow-hidden"
+              className="bg-white dark:bg-slate-900 rounded-xl shadow-lg shadow-gray-200/50 dark:shadow-none hover:shadow-2xl hover:shadow-primary/20 dark:hover:shadow-primary/20 transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group cursor-pointer relative overflow-hidden"
             >
-              <div className="absolute inset-x-0 bottom-0 h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-              <div className="mb-6 bg-gray-50 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-secondary/10 transition-colors duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-primary dark:text-white mb-4 transition-colors group-hover:text-secondary">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-                {service.description}
-              </p>
+              <Link href={`/services/${service.slug}`} className="block h-full w-full p-8">
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                <div className="mb-6 bg-gray-50 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-secondary/10 transition-colors duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold text-primary dark:text-white mb-4 transition-colors group-hover:text-secondary">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
   "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
@@ -14,12 +15,18 @@ const images = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
 
+  const nextImage = () => {
+    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevImage = () => {
+    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    const timer = setInterval(nextImage, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [current]);
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
@@ -35,7 +42,27 @@ export default function Hero() {
           className="absolute inset-0 object-cover w-full h-full"
         />
       </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/50 to-transparent z-0" />
+
+      {/* Left Arrow */}
+      <button
+        onClick={prevImage}
+        className="hidden md:block absolute left-4 md:left-12 lg:left-16 top-1/2 transform -translate-y-1/2 z-20 text-white/70 hover:text-white bg-black/20 hover:bg-black/50 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30"
+        aria-label="Previous image"
+        suppressHydrationWarning
+      >
+        <FiChevronLeft size={32} />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={nextImage}
+        className="hidden md:block absolute right-4 md:right-16 lg:right-20 top-1/2 transform -translate-y-1/2 z-20 text-white/70 hover:text-white bg-black/20 hover:bg-black/50 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30"
+        aria-label="Next image"
+        suppressHydrationWarning
+      >
+        <FiChevronRight size={32} />
+      </button>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 max-w-5xl mx-auto">
         <motion.p
@@ -46,7 +73,7 @@ export default function Hero() {
         >
           Pre-Engineered Buildings | Warehouses | Industrial Sheds
         </motion.p>
-        
+
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

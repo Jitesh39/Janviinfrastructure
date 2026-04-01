@@ -13,7 +13,7 @@ export default function Contact() {
     const data = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xpqolqrj", {
+      const response = await fetch("https://formspree.io/f/mvzvqrdq", {
         method: "POST",
         body: data,
         headers: {
@@ -69,7 +69,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-12 shadow-xl shadow-gray-200/40 dark:shadow-none"
+            className="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-12 shadow-xl shadow-gray-200/40 dark:shadow-none order-2 lg:order-1"
           >
             <h3 className="text-2xl font-bold text-primary dark:text-white mb-8">
               Contact Information
@@ -149,7 +149,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="bg-primary-dark rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+            className="bg-primary-dark rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden order-1 lg:order-2"
           >
             <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-secondary rounded-full blur-3xl opacity-20"></div>
             <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-primary rounded-full blur-3xl opacity-50"></div>
