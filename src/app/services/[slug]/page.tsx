@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { servicesData } from "@/data/servicesData";
-import ServiceDetailClient from "@/components/ServiceDetailClient";
+import ServiceDetailClient from "../../../components/ServiceDetailClient";
 
 export async function generateStaticParams() {
   return servicesData.map((s) => ({

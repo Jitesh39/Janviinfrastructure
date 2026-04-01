@@ -12,6 +12,21 @@ export default function Contact() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    // Basic validation for the specific requirement
+    const name = data.get("name") as string;
+    const phone = data.get("phone") as string;
+    const message = data.get("message") as string;
+
+    if (!name || !phone || !message) {
+      setFormStatus("Please fill all fields correctly");
+      return;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+      setFormStatus("Please enter a valid 10-digit contact number");
+      return;
+    }
+
     try {
       const response = await fetch("https://formspree.io/f/mvzvqrdq", {
         method: "POST",
@@ -169,22 +184,25 @@ export default function Contact() {
                   name="name"
                   required
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-white placeholder-gray-500 transition-all"
-                  placeholder="John Doe"
+                  placeholder="Enter your name"
                   suppressHydrationWarning
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email Address
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Contact Number
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type="tel"
+                  id="phone"
+                  name="phone"
                   required
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  minLength={10}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-white placeholder-gray-500 transition-all"
-                  placeholder="john@example.com"
+                  placeholder="Enter your contact number"
                   suppressHydrationWarning
                 />
               </div>
@@ -199,7 +217,7 @@ export default function Contact() {
                   rows={4}
                   required
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-white placeholder-gray-500 transition-all resize-none"
-                  placeholder="Tell us about your project requirements..."
+                  placeholder="Enter your message"
                   suppressHydrationWarning
                 ></textarea>
               </div>

@@ -13,7 +13,7 @@ export default function CallNowButton() {
 
   return (
     <motion.a
-      href="tel:+919582842908"
+      href="tel:+917380655665"
       aria-label="Call Now"
       initial={{ x: 50, opacity: 0 }}
       animate={{
