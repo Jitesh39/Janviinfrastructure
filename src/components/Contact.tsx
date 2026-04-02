@@ -134,7 +134,7 @@ export default function Contact() {
                   <div>
                     <h4 className="text-sm text-gray-500 uppercase font-semibold">Office Address</h4>
                     <p className="text-md text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">
-                      Gata No-1440 Bankegaon Shurapur Road<br />
+                      Gate No-1440 Bankegaon Shurapur Road<br />
                       Bankegaon Kadipur<br />
                       Sultanpur, Uttar Pradesh - 228145
                     </p>
@@ -150,7 +150,7 @@ export default function Contact() {
                     <p className="text-md text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">
                       KHS-301 Gulistanpur Site-C<br />
                       Surajpur Industrial Area<br />
-                      Greater Noida, Gautam Buddha Nagar - 201306
+                      Greater Noida, GautamBuddha Nagar - 201306
                     </p>
                   </div>
                 </div>

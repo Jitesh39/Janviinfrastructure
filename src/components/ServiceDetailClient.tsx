@@ -27,38 +27,40 @@ export default function ServiceDetailClient({ service }: ServiceProps) {
         <motion.img
           src={service.images[0]}
           alt={service.title}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 0.5, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 object-cover w-full h-full"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.75, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute inset-0 object-cover w-full h-full contrast-[1.15] saturate-[1.1] brightness-[0.85]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/40 to-transparent" />
 
-        {/* Back Button */}
-        <Link
-          href="/"
-          className="absolute top-24 left-4 md:top-28 md:left-12 z-20 flex items-center gap-2 text-white/80 hover:text-white transition-colors bg-black/20 hover:bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg hover:shadow-xl"
-        >
-          <FiArrowLeft className="w-5 h-5" />
-
-          <span className="font-medium text-sm md:text-base">Back to Services</span>
-        </Link>
-
-        {/* Title Center */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
-          <motion.h1
+        {/* Title Center with Arrow */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg"
+            className="flex items-center gap-4 md:gap-8 max-w-full"
           >
-            {service.title}
-          </motion.h1>
+            {/* Back Button */}
+            <Link
+              href="/"
+              className="flex items-center justify-center text-white/80 hover:text-white transition-all group shrink-0"
+              aria-label="Back to Services"
+            >
+              <FiArrowLeft className="w-5 h-5 md:w-8 md:h-8 group-hover:-translate-x-1.5 transition-transform" />
+            </Link>
+
+            <h1 className="text-3xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-xl text-left">
+              {service.title}
+            </h1>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
-            className="h-1.5 w-24 bg-secondary mx-auto rounded-full"
+            className="h-1.5 w-24 bg-secondary mt-6 rounded-full"
           />
         </div>
       </section>
@@ -110,30 +112,65 @@ export default function ServiceDetailClient({ service }: ServiceProps) {
       </section>
 
       {/* 3. Image Gallery Section (2x2 Grid) */}
-      <section className="py-20 bg-gray-50 dark:bg-slate-800 border-y border-gray-100 dark:border-gray-700">
+      <section className="py-24 bg-gray-50 dark:bg-slate-800 border-y border-gray-100 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold text-primary dark:text-white drop-shadow-sm">Project Gallery</h2>
-            <div className="h-1.5 w-16 bg-secondary mx-auto mt-4 rounded-full" />
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-extrabold text-primary dark:text-white drop-shadow-sm"
+            >
+              Project Showcase
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "64px" }}
+              viewport={{ once: true }}
+              className="h-1.5 bg-secondary mx-auto mt-4 rounded-full"
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
             {service.images.map((img, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                whileHover={{ y: -8 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative overflow-hidden rounded-2xl group cursor-pointer shadow-lg bg-black aspect-video"
+                transition={{
+                  duration: 0.7,
+                  delay: idx * 0.15,
+                  type: "spring",
+                  bounce: 0.4
+                }}
+                className="relative overflow-hidden rounded-3xl group cursor-pointer shadow-2xl bg-black aspect-[16/10] border border-transparent hover:border-secondary/30 transition-all duration-500"
               >
                 <img
                   src={img}
-                  alt={`${service.title} Image ${idx + 1}`}
+                  alt={`${service.title} Project Image ${idx + 1}`}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500" />
+
+                {/* Premium Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileHover={{ y: 0, opacity: 1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="h-10 w-1 bg-secondary rounded-full" />
+                    <div>
+                      <p className="text-secondary font-black tracking-widest text-xs uppercase mb-1">Janvi Infrastructure</p>
+                      <h4 className="text-white text-xl font-bold">Structural Excellence</h4>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Shine Animation */}
+                <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/10 opacity-40 group-hover:animate-shine" />
               </motion.div>
             ))}
           </div>

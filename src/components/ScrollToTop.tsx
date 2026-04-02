@@ -37,10 +37,10 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-40 bg-primary/90 hover:bg-primary text-white p-3 rounded-full shadow-xl backdrop-blur-sm hover:shadow-primary/50 transition-all duration-300 flex items-center justify-center cursor-pointer border border-white/20 group"
+          className="fixed bottom-[88px] right-6 z-40 bg-primary/90 hover:bg-primary text-white p-2.5 rounded-full shadow-xl backdrop-blur-sm hover:shadow-primary/50 transition-all duration-300 flex items-center justify-center cursor-pointer border border-white/20 group"
           aria-label="Scroll to top"
         >
-          <FiArrowUp className="w-6 h-6 transform group-hover:-translate-y-1 transition-transform duration-300" />
+          <FiArrowUp className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-y-1 transition-transform duration-300" />
         </motion.button>
       )}
     </AnimatePresence>

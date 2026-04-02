@@ -50,21 +50,25 @@ export default function Expertise() {
           ></motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 gap-y-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6 gap-y-12">
           {materials.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ 
+                delay: index * 0.04, 
+                duration: 0.6,
+                ease: "easeOut"
+              }}
               whileHover={{ y: -5, scale: 1.05 }}
-              className="flex flex-col items-center justify-center p-6 bg-primary-dark/50 rounded-2xl border border-white/10 hover:border-secondary transition-colors cursor-pointer group"
+              className="flex flex-col items-center justify-center p-3 sm:p-6 bg-primary-dark/50 rounded-2xl border border-white/10 hover:border-secondary transition-colors cursor-pointer group h-full"
             >
-              <div className="text-3xl text-gray-400 group-hover:text-secondary mb-4 transition-colors">
+              <div className="text-2xl sm:text-3xl text-gray-400 group-hover:text-secondary mb-3 sm:mb-4 transition-colors">
                 {item.icon}
               </div>
-              <h3 className="text-center text-sm md:text-base font-medium text-gray-300 group-hover:text-white transition-colors">
+              <h3 className="text-center text-xs sm:text-sm md:text-base font-medium text-gray-300 group-hover:text-white transition-colors leading-tight">
                 {item.name}
               </h3>
             </motion.div>

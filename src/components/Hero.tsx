@@ -6,11 +6,13 @@ import { Link } from "react-scroll";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1541888081681-7e8c33a9719d?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072&auto=format&fit=crop",
+  "/services-image/warehouse2.jpg",
+  "/services-image/h2.webp",
+  "/services-image/foot.jpg",
+  "/services-image/cold.jpg",
+  "/services-image/peb.jpg",
 ];
+
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
@@ -29,40 +31,50 @@ export default function Hero() {
   }, [current]);
 
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
-      <AnimatePresence mode="wait">
-        <motion.img
+    <section id="home" className="relative h-screen w-full overflow-hidden bg-black group">
+      <AnimatePresence>
+        <motion.div
           key={current}
-          src={images[current]}
-          alt={`Industrial Site ${current + 1}`}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 0.6, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.9 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 object-cover w-full h-full"
-        />
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <motion.img
+            src={images[current]}
+            alt={`Industrial Site ${current + 1}`}
+            initial={{ scale: 1.1, x: 20 }}
+            animate={{ scale: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="absolute inset-0 object-cover w-full h-full contrast-[1.1] saturate-[1.05] brightness-[0.9]"
+          />
+        </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/50 to-transparent z-0" />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary/20 to-transparent z-0" />
 
       {/* Left Arrow */}
       <button
         onClick={prevImage}
-        className="hidden md:block absolute left-4 md:left-12 lg:left-16 top-1/2 transform -translate-y-1/2 z-20 text-white/70 hover:text-white bg-black/20 hover:bg-black/50 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30"
+        className="hidden md:flex absolute left-4 md:left-12 lg:left-16 top-1/2 -translate-y-1/2 z-20 items-center justify-center text-white/70 hover:text-white bg-black/20 hover:bg-black/50 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto hover:text-secondary hover:border-secondary"
         aria-label="Previous image"
         suppressHydrationWarning
       >
-        <FiChevronLeft size={32} />
+        <FiChevronLeft size={24} />
       </button>
 
       {/* Right Arrow */}
       <button
         onClick={nextImage}
-        className="hidden md:block absolute right-4 md:right-16 lg:right-20 top-1/2 transform -translate-y-1/2 z-20 text-white/70 hover:text-white bg-black/20 hover:bg-black/50 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30"
+        className="hidden md:flex absolute right-4 md:right-16 lg:right-20 top-1/2 -translate-y-1/2 z-20 items-center justify-center text-white/70 hover:text-white bg-black/20 hover:bg-black/50 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto hover:text-secondary hover:border-secondary"
         aria-label="Next image"
         suppressHydrationWarning
       >
-        <FiChevronRight size={32} />
+        <FiChevronRight size={24} />
       </button>
+
+
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 max-w-5xl mx-auto">
         <motion.p
@@ -96,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4"
         >
           <Link
             to="contact"
@@ -104,7 +116,7 @@ export default function Hero() {
             smooth={true}
             offset={-70}
             duration={500}
-            className="bg-secondary hover:bg-secondary-dark text-white px-8 py-4 rounded-md font-bold text-lg cursor-pointer transition-all transform hover:scale-105 shadow-xl hover:shadow-secondary/50"
+            className="bg-secondary hover:bg-secondary-dark text-white px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-md font-bold text-base sm:text-lg cursor-pointer transition-all transform hover:scale-105 shadow-xl hover:shadow-secondary/50 text-center"
           >
             Get Quote
           </Link>
@@ -114,11 +126,12 @@ export default function Hero() {
             smooth={true}
             offset={-70}
             duration={500}
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-md font-bold text-lg cursor-pointer transition-all transform hover:scale-105 shadow-xl"
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-md font-bold text-base sm:text-lg cursor-pointer transition-all transform hover:scale-105 shadow-xl text-center"
           >
             Contact Us
           </Link>
         </motion.div>
+
       </div>
     </section>
   );

@@ -12,10 +12,9 @@ export const servicesData = [
       "Superior spanning capabilities without intermediate columns",
     ],
     images: [
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1541888081681-7e8c33a9719d?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1533423996375-f914d101d2bd?q=80&w=2069&auto=format&fit=crop"
+      "/services-image/pre-engineered/img1.jpeg",
+      "/services-image/pre-engineered/img2.jpeg",
+      "/services-image/pre-engineered/img3.jpeg"
     ]
   },
   {
@@ -31,10 +30,10 @@ export const servicesData = [
       "Heavy-duty industrial flooring for forklift access",
     ],
     images: [
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1563603417618-2ad16ec71181?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1580901597500-1c0bd6ba6e7e?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964&auto=format&fit=crop"
+      "/services-image/cold-storage/img4.jpeg",
+      "/services-image/cold-storage/img1.jpeg",
+      "/services-image/cold-storage/img2.jpeg",
+      "/services-image/cold-storage/img3.jpeg"
     ]
   },
   {
@@ -50,10 +49,11 @@ export const servicesData = [
       "Enhanced security and structural integrity",
     ],
     images: [
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1935&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1616423640778-28d1b53229b1?q=80&w=2070&auto=format&fit=crop"
+
+      "/services-image/warehouse-manufacturer/img1.jpg",
+      "/services-image/warehouse-manufacturer/img2.jpg",
+      "/services-image/warehouse-manufacturer/img3.jpg",
+      "/services-image/warehouse-manufacturer/img4.jpg"
     ]
   },
   {
@@ -69,10 +69,11 @@ export const servicesData = [
       "Sustainable and highly recyclable materials",
     ],
     images: [
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2062&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?q=80&w=2067&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?q=80&w=1979&auto=format&fit=crop"
+      "/services-image/multi-storey-building/img1.jpg",
+      "/services-image/multi-storey-building/img2.jpg",
+      "/services-image/multi-storey-building/img3.jpg",
+      "/services-image/multi-storey-building/img4.jpg",
+
     ]
   },
   {
@@ -88,29 +89,11 @@ export const servicesData = [
       "Custom layouts tailored to specific building facades",
     ],
     images: [
-      "https://images.unsplash.com/photo-1517594002662-8e1008d51cf6?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517812480687-1b058fe641e7?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1481026469463-66327c86e544?q=80&w=1908&auto=format&fit=crop"
-    ]
-  },
-  {
-    slug: "tin-sheds-manufacturing",
-    title: "Tin Sheds & Manufacturing",
-    description: "Durable tin sheds and precision manufacturing & structural services.",
-    detailedContent: "We provide high-grade tin and industrial roofing sheds explicitly built for durability. Utilizing premium quality corrugated sheets and galvanized iron, our sheds provide comprehensive protection against harsh environments. Ideal for factory roofing, parking zones, and temporary warehousing, these sheds are engineered to handle high wind loads and direct heavy rain efficiently.",
-    benefits: [
-      "Rapid and scalable deployment",
-      "Excellent weather protection and UV resistance",
-      "Cost-effective alternative for temporary or permanent roofing",
-      "Low maintenance requiring no specialized upkeep",
-      "Custom profile designs and colors available",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1533423996375-f914d101d2bd?q=80&w=2069&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1541888081681-7e8c33a9719d?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1968&auto=format&fit=crop"
+      "/services-image/fire-staircase/img1.jpg",
+      "/services-image/fire-staircase/img2.jpg",
+      "/services-image/fire-staircase/img3.jpg",
+      "/services-image/fire-staircase/img4.jpeg"
+
     ]
   },
   {
@@ -126,10 +109,13 @@ export const servicesData = [
       "Suitable for industrial branding and highway visibility",
     ],
     images: [
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584445584400-98d009b0b457?q=80&w=1824&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1627844642677-8b33100873d1?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584444502595-3ab817452d2f?q=80&w=1828&auto=format&fit=crop"
+      "/services-image/sign-board/img1.jpg",
+      "/services-image/sign-board/img2.jpg",
+      "/services-image/sign-board/img3.jpg",
+      "/services-image/sign-board/img4.jpg",
+      "/services-image/sign-board/img5.jpg",
+      "/services-image/sign-board/img6.jpg"
+
     ]
   },
   {
@@ -145,10 +131,10 @@ export const servicesData = [
       "Aesthetically modern and structurally sound",
     ],
     images: [
-      "https://images.unsplash.com/photo-1513689125086-6b216ee8e010?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1492003882705-cb6d16568393?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1473663604084-fb317cc77db5?q=80&w=2052&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1445796245353-066cb17cdd4e?q=80&w=2070&auto=format&fit=crop"
+      "/services-image/foot-overbridge/img1.jpg",
+      "/services-image/foot-overbridge/img2.jpg",
+      "/services-image/foot-overbridge/img3.jpg",
+      "/services-image/foot-overbridge/img4.jpg"
     ]
   }
 ];

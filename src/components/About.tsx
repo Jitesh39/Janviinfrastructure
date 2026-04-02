@@ -17,16 +17,16 @@ export default function About() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 bg-primary-dark">
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2062&auto=format&fit=crop"
-                alt="Construction Site"
+                src="/services-image/aboutus.jpeg"
+                alt="About Janvi Infrastructure"
                 className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent" />
             </div>
             {/* Experience Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-secondary text-white p-6 rounded-xl shadow-xl hidden sm:block">
-              <p className="text-4xl font-extrabold text-center">Precision</p>
-              <p className="text-sm font-medium tracking-wide">In Every Structure</p>
+            <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-primary p-3.5 rounded-xl shadow-2xl border border-white/20 hidden sm:block">
+              <p className="text-2xl font-black text-center leading-none">Precision</p>
+              <p className="text-[10px] font-bold uppercase tracking-tighter mt-1 opacity-80">In Every Structure</p>
             </div>
           </motion.div>
 
