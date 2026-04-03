@@ -28,12 +28,12 @@ export default function ServiceDetailClient({ service }: ServiceProps) {
           src={service.images[0]}
           alt={service.title}
           initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.75, scale: 1 }}
+          animate={{ opacity: 0.9, scale: 1 }}
           transition={{ duration: 0.9, ease: "easeInOut" }}
           style={{ willChange: "transform, opacity" }}
-          className="absolute inset-0 object-cover w-full h-full contrast-[1.15] saturate-[1.1] brightness-[0.85]"
+          className="absolute inset-0 object-cover w-full h-full contrast-[1.1] saturate-[1.1] brightness-[1]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
         {/* Title Center with Arrow */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
@@ -69,22 +69,22 @@ export default function ServiceDetailClient({ service }: ServiceProps) {
       </section>
 
       {/* 2. Service Details Section */}
-      <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.45, ease: "easeInOut" }}
             style={{ willChange: "transform, opacity" }}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-3 space-y-8"
           >
             <div>
-              <h2 className="text-3xl font-bold text-primary dark:text-white mb-6">Overview</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
+              <h2 className="text-4xl font-bold text-primary dark:text-white mb-8">Overview</h2>
+              <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-semibold">
                 {service.description}
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-loose mt-4">
+              <p className="text-lg text-gray-600 dark:text-gray-400 leading-loose mt-6">
                 {service.detailedContent}
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function ServiceDetailClient({ service }: ServiceProps) {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.45, delay: 0.15, ease: "easeInOut" }}
             style={{ willChange: "transform, opacity" }}
-            className="bg-gray-50 dark:bg-slate-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-xl shadow-gray-200/30 dark:shadow-none h-fit"
+            className="lg:col-span-2 bg-gray-50 dark:bg-slate-800 p-10 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-2xl shadow-gray-200/40 dark:shadow-none h-fit"
           >
             <h3 className="text-xl font-bold text-primary dark:text-white mb-6 uppercase tracking-wide text-sm border-b border-gray-200 dark:border-gray-700 pb-4">
               Key Advantages
@@ -106,7 +106,7 @@ export default function ServiceDetailClient({ service }: ServiceProps) {
               {service.benefits.map((benefit, idx) => (
                 <li key={idx} className="flex items-start gap-4">
                   <FiCheckCircle className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
-                  <span className="text-gray-700 dark:text-gray-300 font-medium text-sm sm:text-base leading-snug">
+                  <span className="text-gray-700 dark:text-gray-300 font-medium text-base md:text-lg leading-relaxed">
                     {benefit}
                   </span>
                 </li>

@@ -136,5 +136,24 @@ export const servicesData = [
       "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192647/img3_dbnfbr.jpg",
       "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192655/img4_hjvtau.jpg"
     ]
+  },
+  {
+    slug: "industrial-shed-godown-factory",
+    title: "Industrial Shed Godown Factory",
+    description: "Expert construction of heavy-duty industrial sheds, godowns, and manufacturing units.",
+    detailedContent: "Janvi Infrastructure specializes in the end-to-end design and construction of versatile industrial sheds, godowns, and factory units. Our structures are engineered for maximum durability, utilizing high-quality steel to ensure long spans and optimal overhead clearance. Whether you require a simple godown for storage or a complex factory setup with integrated overhead cranes and heavy machinery foundations, we provide turnkey solutions that balance speed, strength, and cost-effectiveness. Our pre-fabricated approach ensures rapid deployment without compromising structural integrity.",
+    benefits: [
+      "Customizable spans for large machinery and storage layouts",
+      "Weather-resistant and corrosion-proof structural coatings",
+      "Quick assembly minimizing operational downtime for businesses",
+      "Cost-efficient alternative to conventional RCC structures",
+      "Scalable and modular design for future industrial expansion",
+    ],
+    images: [
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775226028/img1_eogc4f.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775226028/img2_kartgy.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775226027/img3_lgnmep.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775226026/img4_go0kjz.jpg"
+    ]
   }
 ];

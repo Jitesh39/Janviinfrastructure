@@ -54,6 +54,12 @@ const services = [
     title: "Foot Over Bridge",
     description: "Robust and secure pedestrian bridges designed for high-traffic industrial areas.",
     icon: <WrenchScrewdriverIcon className="w-7 h-7 text-secondary" />
+  },
+  {
+    slug: "industrial-shed-godown-factory",
+    title: "Industrial Shed Godown Factory",
+    description: "Expert construction of heavy-duty industrial sheds, godowns, and manufacturing units.",
+    icon: <BuildingOffice2Icon className="w-7 h-7 text-secondary" />
   }
 ];
 
@@ -75,15 +81,11 @@ export default function Services() {
       {/* Fixed Background Layer */}
       <div
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/dec3rwvm5/image/upload/v1775203075/ser-bg_lobdzv.avif')"
+          backgroundImage: "url('https://res.cloudinary.com/dec3rwvm5/image/upload/v1775225677/bg4_ufqcpj.jpg')"
         }}
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
         aria-hidden="true"
       />
-
-      {/* Overlay */}
-      <div className="absolute inset-0 z-0 bg-black/65 backdrop-blur-[2px]" aria-hidden="true" />
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h4

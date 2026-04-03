@@ -5,7 +5,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiX } from "react-icons/fi";
+import { FiX, FiChevronDown } from "react-icons/fi";
 import TopStrip, { MobileTopStrip } from "./TopStrip";
 
 export default function Navbar() {
@@ -13,6 +13,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -61,15 +63,26 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", to: "home" },
     { name: "About Us", to: "about" },
-    { name: "Services", to: "services" },
+    { name: "Services", to: "services", hasDropdown: true },
     { name: "Expertise", to: "expertise" },
     { name: "Gallery", to: "projects" },
-    { name: "Contact", to: "contact" },
+    { name: "Contact Us", to: "contact" },
+  ];
+
+  const services = [
+    { name: "Pre-Engineered Building Manufacturer", slug: "pre-engineered-buildings" },
+    { name: "Cold Storage Manufacturer", slug: "cold-storage-manufacturer" },
+    { name: "Warehouse Manufacturer", slug: "warehouse-manufacturer" },
+    { name: "Multi-Storey Building Manufacturer", slug: "multi-storey-building" },
+    { name: "Sign Board Manufacturer", slug: "sign-board-manufacturer" },
+    { name: "Fire Staircase Manufacturer", slug: "fire-staircase-manufacturer" },
+    { name: "Foot Over Bridge", slug: "foot-over-bridge" },
+    { name: "Industrial Shed Godown Factory", slug: "industrial-shed-godown-factory" },
   ];
 
   return (
     <header
-      className={`fixed w-full z-50 transition-transform duration-200 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[48px] md:-translate-y-[53px]"
+      className={`fixed w-full z-50 transition-transform duration-200 ease-in-out ${isVisible || isOpen ? "translate-y-0" : "-translate-y-[48px] md:-translate-y-[53px]"
         }`}
       style={{ willChange: "transform" }}
     >
@@ -98,27 +111,69 @@ export default function Navbar() {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((item) => (
-                isHome ? (
-                  <ScrollLink
+                item.hasDropdown ? (
+                  <div
                     key={item.name}
-                    to={item.to}
-                    spy={true}
-                    hashSpy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={400}
-                    className="text-gray-300 hover:text-white cursor-pointer transition-colors duration-200 text-sm font-medium uppercase"
+                    className="relative"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
                   >
-                    {item.name}
-                  </ScrollLink>
+                    <button className="flex items-center text-white hover:text-white cursor-pointer transition-colors duration-200 text-base font-bold focus:outline-none">
+                      {item.name}
+                      <motion.span
+                        animate={{ rotate: isServicesOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <FiChevronDown className="ml-1 text-xs" />
+                      </motion.span>
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    <AnimatePresence>
+                      {isServicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 15 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="absolute left-[-60px] mt-4 w-[280px] bg-primary rounded-lg shadow-2xl overflow-hidden py-1 z-[100] border border-white/10"
+                        >
+                          {services.map((service) => (
+                            <NextLink
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="block px-5 py-3 text-base text-white font-medium hover:bg-white/10 transition-colors duration-300 first:pt-4 last:pb-4 border-b border-white/5 last:border-0"
+                            >
+                              {service.name}
+                            </NextLink>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ) : (
-                  <NextLink
-                    key={item.name}
-                    href={`/#${item.to}`}
-                    className="text-gray-300 hover:text-white cursor-pointer transition-colors text-sm font-medium uppercase"
-                  >
-                    {item.name}
-                  </NextLink>
+                  isHome ? (
+                    <ScrollLink
+                      key={item.name}
+                      to={item.to}
+                      spy={true}
+                      hashSpy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={400}
+                      className="text-white hover:text-white cursor-pointer transition-colors duration-200 text-base font-bold"
+                    >
+                      {item.name}
+                    </ScrollLink>
+                  ) : (
+                    <NextLink
+                      key={item.name}
+                      href={`/#${item.to}`}
+                      className="text-white hover:text-white cursor-pointer transition-colors text-base font-bold"
+                    >
+                      {item.name}
+                    </NextLink>
+                  )
                 )
               ))}
               {isHome ? (
@@ -129,14 +184,14 @@ export default function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={400}
-                  className="bg-secondary hover:bg-secondary-dark text-white px-6 py-1.5 rounded-md font-semibold cursor-pointer transition-colors duration-200"
+                  className="bg-secondary hover:bg-secondary-dark text-white px-6 py-1.5 rounded-md font-semibold cursor-pointer transition-colors duration-200 text-base"
                 >
                   Enquire
                 </ScrollLink>
               ) : (
                 <NextLink
                   href="/#contact"
-                  className="bg-secondary hover:bg-secondary-dark text-white px-6 py-1.5 rounded-md font-semibold cursor-pointer transition-colors"
+                  className="bg-secondary hover:bg-secondary-dark text-white px-6 py-1.5 rounded-md font-semibold cursor-pointer transition-colors text-base"
                 >
                   Enquire
                 </NextLink>
@@ -186,7 +241,7 @@ export default function Navbar() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setIsOpen(false)}
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm h-screen w-full"
+                className="absolute inset-0 bg-black/70 backdrop-blur-md h-screen w-full"
               />
 
               {/* Left-side Drawer */}
@@ -213,46 +268,98 @@ export default function Navbar() {
                 </div>
 
                 {/* Drawer Content */}
-                <div className="flex-1 overflow-y-auto px-4 py-8 space-y-2">
+                <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
                   {navLinks.map((item) => (
-                    isHome ? (
-                      <ScrollLink
-                        key={item.name}
-                        to={item.to}
-                        spy={true}
-                        hashSpy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        onClick={() => setIsOpen(false)}
-                        className="block w-full text-left px-6 py-4 rounded-xl text-lg font-bold tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5 last:border-0"
-                      >
-                        {item.name}
-                      </ScrollLink>
+                    item.hasDropdown ? (
+                      <div key={item.name} className="flex flex-col">
+                        <button
+                          onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                          className="flex items-center justify-between w-full text-left px-6 py-2.5 rounded-xl text-xl font-bold tracking-wide text-white hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5"
+                        >
+                          {item.name}
+                          <motion.span
+                            animate={{ rotate: isMobileServicesOpen ? 180 : 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <FiChevronDown />
+                          </motion.span>
+                        </button>
+
+                        <AnimatePresence>
+                          {isMobileServicesOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden bg-white/5 rounded-xl mt-1 space-y-1"
+                            >
+                              {services.map((service) => (
+                                <NextLink
+                                  key={service.slug}
+                                  href={`/services/${service.slug}`}
+                                  onClick={() => {
+                                    setIsOpen(false);
+                                    setIsMobileServicesOpen(false);
+                                  }}
+                                  className="block px-10 py-2 text-lg text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
+                                >
+                                  {service.name}
+                                </NextLink>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
                     ) : (
-                      <NextLink
-                        key={item.name}
-                        href={`/#${item.to}`}
-                        onClick={() => setIsOpen(false)}
-                        className="block w-full text-left px-6 py-4 rounded-xl text-lg font-bold tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5 last:border-0"
-                      >
-                        {item.name}
-                      </NextLink>
+                      isHome ? (
+                        <ScrollLink
+                          key={item.name}
+                          to={item.to}
+                          spy={true}
+                          hashSpy={true}
+                          smooth={true}
+                          offset={-70}
+                          duration={500}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setIsMobileServicesOpen(false);
+                          }}
+                          className="block w-full text-left px-6 py-2.5 rounded-xl text-xl font-bold tracking-wide text-white hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5 last:border-0"
+                        >
+                          {item.name}
+                        </ScrollLink>
+                      ) : (
+                        <NextLink
+                          key={item.name}
+                          href={`/#${item.to}`}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setIsMobileServicesOpen(false);
+                          }}
+                          className="block w-full text-left px-6 py-2.5 rounded-xl text-xl font-bold tracking-wide text-white hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5 last:border-0"
+                        >
+                          {item.name}
+                        </NextLink>
+                      )
                     )
                   ))}
                 </div>
 
                 {/* Drawer Footer */}
-                <div className="p-8 border-t border-white/5">
+                <div className="p-6 border-t border-white/5">
                   <ScrollLink
                     to="contact"
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    onClick={() => setIsOpen(false)}
-                    className="block w-full bg-secondary text-white text-center py-4 rounded-xl font-bold tracking-wider hover:bg-secondary-dark transition-all duration-300"
+                    onClick={() => {
+                      setIsOpen(false);
+                      setIsMobileServicesOpen(false);
+                    }}
+                    className="block w-full bg-secondary text-white text-center py-2 rounded-xl font-bold tracking-wider hover:bg-secondary-dark transition-all duration-300 text-base"
                   >
-                    GET A QUOTE
+                    Enquire
                   </ScrollLink>
                 </div>
               </motion.div>
