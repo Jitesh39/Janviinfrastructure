@@ -7,7 +7,8 @@
   --color-secondary-dark: #e03e23;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
 }
@@ -30,8 +31,20 @@ body {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
+}
+
+/* Mobile Menu Active State: Blur Floating Buttons */
+body.mobile-menu-open .floating-element {
+  filter: blur(8px) brightness(0.6);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 10 !important;
+  transition: all 0.4s ease-in-out;
 }

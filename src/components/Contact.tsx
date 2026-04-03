@@ -72,7 +72,8 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15, ease: "easeInOut", duration: 0.4 }}
+            style={{ willChange: "transform, opacity" }}
             className="h-1.5 w-24 bg-secondary mx-auto mt-6 rounded-full"
           ></motion.div>
         </div>
@@ -83,7 +84,8 @@ export default function Contact() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            style={{ willChange: "transform, opacity" }}
             className="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-12 shadow-xl shadow-gray-200/40 dark:shadow-none order-2 lg:order-1"
           >
             <h3 className="text-2xl font-bold text-primary dark:text-white mb-8">
@@ -107,7 +109,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm text-gray-500 uppercase font-semibold">Phone</h4>
-                  <p className="text-lg font-bold text-gray-800 dark:text-gray-200">+91 7380655665</p>
+                  <p className="text-lg font-bold text-gray-800 dark:text-gray-200">+91 9582842908</p>
                 </div>
               </div>
 
@@ -163,7 +165,8 @@ export default function Contact() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            style={{ willChange: "transform, opacity" }}
             className="bg-primary-dark rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden order-1 lg:order-2"
           >
             <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-secondary rounded-full blur-3xl opacity-20"></div>

@@ -12,12 +12,13 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{ willChange: "transform, opacity" }}
             className="w-full md:w-1/2 relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 bg-primary-dark">
               <img
-                src="/services-image/aboutus.jpeg"
+                src="/aboutus.jpeg"
                 alt="About Janvi Infrastructure"
                 className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
               />
@@ -35,7 +36,8 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{ willChange: "transform, opacity" }}
             className="w-full md:w-1/2 space-y-6"
           >
             <h4 className="text-secondary font-bold tracking-widest uppercase text-sm">

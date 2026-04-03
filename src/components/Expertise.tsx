@@ -45,7 +45,8 @@ export default function Expertise() {
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15, ease: "easeInOut", duration: 0.4 }}
+            style={{ willChange: "transform, opacity" }}
             className="h-1.5 w-24 bg-secondary mx-auto mt-6 rounded-full"
           ></motion.div>
         </div>
@@ -58,11 +59,12 @@ export default function Expertise() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ 
-                delay: index * 0.04, 
-                duration: 0.6,
-                ease: "easeOut"
+                delay: index * 0.03, 
+                duration: 0.4,
+                ease: "easeInOut"
               }}
               whileHover={{ y: -5, scale: 1.05 }}
+              style={{ willChange: "transform, opacity" }}
               className="flex flex-col items-center justify-center p-3 sm:p-6 bg-primary-dark/50 rounded-2xl border border-white/10 hover:border-secondary transition-colors cursor-pointer group h-full"
             >
               <div className="text-2xl sm:text-3xl text-gray-400 group-hover:text-secondary mb-3 sm:mb-4 transition-colors">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Catalog from "@/components/Catalog";
+import PageLoader from "@/components/PageLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} antialiased selection:bg-secondary selection:text-white`} suppressHydrationWarning>
+        <PageLoader />
         {children}
         <Catalog />
       </body>

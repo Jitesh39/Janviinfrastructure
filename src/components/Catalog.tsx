@@ -12,11 +12,12 @@ export default function Catalog() {
 
   return (
     <a
-      href="/catalog.pdf"
+      href="/Janvi-Infrastructure-Brochure.pdf"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="View Company Catalog"
-      className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[#E31E24] hover:bg-[#c4191e] text-white flex flex-col items-center justify-center py-5 px-2.5 rounded-l-md shadow-[-4px_0_15px_rgba(0,0,0,0.3)] transition-all duration-300 group overflow-hidden border border-white/10 border-r-0 cursor-pointer"
+      className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[#E31E24] hover:bg-[#c4191e] text-white flex flex-col items-center justify-center py-5 px-2.5 rounded-l-md shadow-[-4px_0_15px_rgba(0,0,0,0.3)] transition-all duration-200 group overflow-hidden border border-white/10 border-r-0 cursor-pointer floating-element"
+      style={{ willChange: "transform" }}
     >
       <span
         style={{ writingMode: "vertical-rl" }}

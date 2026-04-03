@@ -17,8 +17,8 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-1 lg:col-span-1">
             <div className="mb-6">
               {isHome ? (
-                <ScrollLink to="home" spy={true} smooth={true} offset={-70} duration={500} className="cursor-pointer">
-                  <img src="/logo.png" alt="Janvi Infrastructure Logo" className="h-20 w-auto object-contain" />
+                <ScrollLink to="home" spy={true} smooth={true} offset={-70} duration={400} className="cursor-pointer">
+                  <img src="/logo.png" alt="Janvi Infrastructure Logo" className="h-20 w-auto object-contain transition-opacity duration-200 hover:opacity-80" />
                 </ScrollLink>
               ) : (
                 <Link href="/" className="cursor-pointer">
@@ -30,10 +30,10 @@ export default function Footer() {
               Delivering high-quality Pre-Engineered Buildings, warehouses, and industrial infrastructure solutions with precision and durability.
             </p>
             <div className="flex space-x-4">
-              <a href="https://wa.me/917380655665?text=Hello%20I%20am%20interested%20in%20your%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all" aria-label="WhatsApp">
+              <a href="https://wa.me/919582842908?text=Hello%20I%20am%20interested%20in%20your%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all" aria-label="WhatsApp">
                 <FaWhatsapp size={20} />
               </a>
-              <a href="mailto:infrastructurejanvi@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-secondary transition-all" aria-label="Email">
+              <a href="mailto:infrastructurejanvi@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-secondary transition-all duration-200" aria-label="Email">
                 <FiMail size={20} />
               </a>
             </div>
@@ -84,8 +84,8 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-200">
               <li className="flex items-start">
                 <strong className="text-white mr-2 block w-16 shrink-0">Phone:</strong>
-                <a href="tel:+917380655665" className="hover:text-secondary transition-colors duration-200">
-                  +91 7380655665
+                <a href="tel:+919582842908" className="hover:text-secondary transition-colors duration-200">
+                  +91 9582842908
                 </a>
               </li>
               <li className="flex items-start">

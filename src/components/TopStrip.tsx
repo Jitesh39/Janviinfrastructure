@@ -18,7 +18,7 @@ export default function TopStrip() {
             </div>
             <div className="flex items-center space-x-2">
               <FiPhone className="text-secondary shrink-0" />
-              <a href="tel:+917380655665" className="hover:text-secondary transition-colors">+91 7380655665</a>
+              <a href="tel:+919582842908" className="hover:text-secondary transition-colors">+91 9582842908</a>
             </div>
           </div>
 
@@ -28,7 +28,7 @@ export default function TopStrip() {
               <FiMail className="text-secondary shrink-0" />
               <a href="mailto:infrastructurejanvi@gmail.com" className="hover:text-secondary transition-colors">infrastructurejanvi@gmail.com</a>
             </div>
-            <a href="https://wa.me/917380655665" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white hover:text-secondary transition-colors transform hover:scale-105" aria-label="WhatsApp">
+            <a href="https://wa.me/919582842908" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white hover:text-secondary transition-colors transform hover:scale-105" aria-label="WhatsApp">
               <FaWhatsapp className="text-[#25D366]" size={16} />
               <span>WhatsApp</span>
             </a>
@@ -45,7 +45,7 @@ export function MobileTopStrip() {
     <div className="flex items-center space-x-6 px-3 whitespace-nowrap text-[12px]">
       <div className="flex items-center space-x-1.5">
         <FiPhone className="text-secondary shrink-0" />
-        <a href="tel:+917380655665">+91 7380655665</a>
+        <a href="tel:+919582842908">+91 9582842908</a>
       </div>
       <div className="flex items-center space-x-1.5">
         <FiMail className="text-secondary shrink-0" />
@@ -55,7 +55,7 @@ export function MobileTopStrip() {
         <FiMapPin className="text-secondary shrink-0" />
         <span>Gate No-1440, Bankegaon, Sultanpur (UP)</span>
       </div>
-      <a href="https://wa.me/917380655665" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1.5" aria-label="WhatsApp">
+      <a href="https://wa.me/919582842908" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1.5" aria-label="WhatsApp">
         <FaWhatsapp className="text-[#25D366]" size={14} />
         <span className="font-bold uppercase tracking-wider text-[10px]">WhatsApp</span>
       </a>
@@ -72,6 +72,7 @@ export function MobileTopStrip() {
           repeat: Infinity,
         }}
         className="flex min-w-max"
+        style={{ willChange: "transform" }}
       >
         {content}
         {content}

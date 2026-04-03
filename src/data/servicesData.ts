@@ -12,9 +12,10 @@ export const servicesData = [
       "Superior spanning capabilities without intermediate columns",
     ],
     images: [
-      "/services-image/pre-engineered/img1.jpeg",
-      "/services-image/pre-engineered/img2.jpeg",
-      "/services-image/pre-engineered/img3.jpeg"
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192754/img1_hhzmxk.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192754/img2_o1yqs7.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192755/img3_qwwevb.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775193819/img1_py8yli.jpg"
     ]
   },
   {
@@ -30,10 +31,10 @@ export const servicesData = [
       "Heavy-duty industrial flooring for forklift access",
     ],
     images: [
-      "/services-image/cold-storage/img4.jpeg",
-      "/services-image/cold-storage/img1.jpeg",
-      "/services-image/cold-storage/img2.jpeg",
-      "/services-image/cold-storage/img3.jpeg"
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192431/img4_vouwlq.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192425/img1_aydyi4.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192427/img2_t04vee.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192428/img3_yfhs7d.jpg"
     ]
   },
   {
@@ -50,10 +51,10 @@ export const servicesData = [
     ],
     images: [
 
-      "/services-image/warehouse-manufacturer/img1.jpg",
-      "/services-image/warehouse-manufacturer/img2.jpg",
-      "/services-image/warehouse-manufacturer/img3.jpg",
-      "/services-image/warehouse-manufacturer/img4.jpg"
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192975/img1_lxapyf.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192991/img2_tjr0bv.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192986/img3_tan7rc.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192977/img4_rcucnk.jpg"
     ]
   },
   {
@@ -69,10 +70,10 @@ export const servicesData = [
       "Sustainable and highly recyclable materials",
     ],
     images: [
-      "/services-image/multi-storey-building/img1.jpg",
-      "/services-image/multi-storey-building/img2.jpg",
-      "/services-image/multi-storey-building/img3.jpg",
-      "/services-image/multi-storey-building/img4.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192689/img1_hd8jyz.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192687/img2_qxnfhn.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192704/img3_pm6krp.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192716/img4_vdttk7.jpg",
 
     ]
   },
@@ -89,10 +90,10 @@ export const servicesData = [
       "Custom layouts tailored to specific building facades",
     ],
     images: [
-      "/services-image/fire-staircase/img1.jpg",
-      "/services-image/fire-staircase/img2.jpg",
-      "/services-image/fire-staircase/img3.jpg",
-      "/services-image/fire-staircase/img4.jpeg"
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192610/img1_ld7rty.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192612/img2_wtrcxd.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192604/img3_pnxzd6.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192590/img4_kurlki.jpg"
 
     ]
   },
@@ -109,13 +110,12 @@ export const servicesData = [
       "Suitable for industrial branding and highway visibility",
     ],
     images: [
-      "/services-image/sign-board/img1.jpg",
-      "/services-image/sign-board/img2.jpg",
-      "/services-image/sign-board/img3.jpg",
-      "/services-image/sign-board/img4.jpg",
-      "/services-image/sign-board/img5.jpg",
-      "/services-image/sign-board/img6.jpg"
-
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192793/img1_fygwoo.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192793/img2_uxzyq4.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192810/img3_ugqomq.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192806/img4_gtqkfs.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192807/img5_q3tfeb.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192799/img6_jewzyr.jpg"
     ]
   },
   {
@@ -131,10 +131,10 @@ export const servicesData = [
       "Aesthetically modern and structurally sound",
     ],
     images: [
-      "/services-image/foot-overbridge/img1.jpg",
-      "/services-image/foot-overbridge/img2.jpg",
-      "/services-image/foot-overbridge/img3.jpg",
-      "/services-image/foot-overbridge/img4.jpg"
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192646/img1_fysciq.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192659/img2_hr4dwh.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192647/img3_dbnfbr.jpg",
+      "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192655/img4_hjvtau.jpg"
     ]
   }
 ];

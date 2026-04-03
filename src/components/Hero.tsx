@@ -6,11 +6,10 @@ import { Link } from "react-scroll";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
-  "/services-image/warehouse2.jpg",
-  "/services-image/h2.webp",
-  "/services-image/foot.jpg",
-  "/services-image/cold.jpg",
-  "/services-image/peb.jpg",
+  "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775197851/warehouse2_zpuxrw.jpg",
+  "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775197846/h2_xqyr1n.webp",
+  "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775197845/cold_bgvwzb.jpg",
+  "https://res.cloudinary.com/dec3rwvm5/image/upload/v1775197849/peb_lh84f1.jpg"
 ];
 
 
@@ -46,7 +45,8 @@ export default function Hero() {
             alt={`Industrial Site ${current + 1}`}
             initial={{ scale: 1.1, x: 20 }}
             animate={{ scale: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: "easeInOut" }}
+            style={{ willChange: "transform" }}
             className="absolute inset-0 object-cover w-full h-full contrast-[1.1] saturate-[1.05] brightness-[0.9]"
           />
         </motion.div>
@@ -80,7 +80,8 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          style={{ willChange: "transform, opacity" }}
           className="text-secondary font-bold tracking-widest uppercase mb-4 text-sm md:text-lg"
         >
           Pre-Engineered Buildings | Warehouses | Industrial Sheds
@@ -89,7 +90,8 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeInOut" }}
+          style={{ willChange: "transform, opacity" }}
           className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg"
         >
           Janvi Infrastructure
@@ -98,7 +100,8 @@ export default function Hero() {
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
+          style={{ willChange: "opacity" }}
           className="text-xl md:text-3xl text-gray-200 mb-10 font-light drop-shadow-md"
         >
           Reliable PEB Structures & Warehouse Solutions
@@ -107,7 +110,8 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.45, ease: "easeInOut" }}
+          style={{ willChange: "transform, opacity" }}
           className="flex flex-col sm:flex-row gap-3 sm:gap-4"
         >
           <Link

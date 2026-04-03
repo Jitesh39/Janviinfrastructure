@@ -5,6 +5,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiX } from "react-icons/fi";
 import TopStrip, { MobileTopStrip } from "./TopStrip";
 
 export default function Navbar() {
@@ -37,19 +38,40 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Handle body scroll lock and Escape key
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.classList.add("mobile-menu-open");
+      const handleEsc = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setIsOpen(false);
+      };
+      window.addEventListener("keydown", handleEsc);
+      return () => {
+        document.body.style.overflow = "";
+        document.body.classList.remove("mobile-menu-open");
+        window.removeEventListener("keydown", handleEsc);
+      };
+    } else {
+      document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-open");
+    }
+  }, [isOpen]);
+
   const navLinks = [
     { name: "Home", to: "home" },
-    { name: "About", to: "about" },
+    { name: "About Us", to: "about" },
     { name: "Services", to: "services" },
     { name: "Expertise", to: "expertise" },
-    { name: "Projects", to: "projects" },
+    { name: "Gallery", to: "projects" },
     { name: "Contact", to: "contact" },
   ];
 
   return (
     <header
-      className={`fixed w-full z-50 transition-transform duration-300 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[48px] md:-translate-y-[53px]"
+      className={`fixed w-full z-50 transition-transform duration-200 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-[48px] md:-translate-y-[53px]"
         }`}
+      style={{ willChange: "transform" }}
     >
       <TopStrip />
       <MobileTopStrip />
@@ -84,8 +106,8 @@ export default function Navbar() {
                     hashSpy={true}
                     smooth={true}
                     offset={-70}
-                    duration={500}
-                    className="text-gray-300 hover:text-white cursor-pointer transition-colors text-sm font-medium uppercase"
+                    duration={400}
+                    className="text-gray-300 hover:text-white cursor-pointer transition-colors duration-200 text-sm font-medium uppercase"
                   >
                     {item.name}
                   </ScrollLink>
@@ -106,8 +128,8 @@ export default function Navbar() {
                   hashSpy={true}
                   smooth={true}
                   offset={-70}
-                  duration={500}
-                  className="bg-secondary hover:bg-secondary-dark text-white px-6 py-1.5 rounded-md font-semibold cursor-pointer transition-colors"
+                  duration={400}
+                  className="bg-secondary hover:bg-secondary-dark text-white px-6 py-1.5 rounded-md font-semibold cursor-pointer transition-colors duration-200"
                 >
                   Enquire
                 </ScrollLink>
@@ -129,6 +151,7 @@ export default function Navbar() {
                 aria-expanded={isOpen}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                suppressHydrationWarning
                 className={`relative flex flex-col items-center justify-center w-[36px] h-[36px] rounded-md shadow-md focus:outline-none transition-colors ${scrolled || !isHome || !isVisible ? "bg-[#0A1F44]" : "bg-black/30 backdrop-blur-md"
                   }`}
               >
@@ -145,7 +168,7 @@ export default function Navbar() {
                 <motion.span
                   className="absolute w-5 h-[2px] bg-white rounded-full"
                   animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                 />
               </motion.button>
             </div>
@@ -155,24 +178,42 @@ export default function Navbar() {
         {/* Mobile Menu & Backdrop */}
         <AnimatePresence>
           {isOpen && (
-            <>
-              {/* Blurred Backdrop */}
+            <div className="fixed inset-0 z-[100] md:hidden">
+              {/* Blurred Backdrop Overlay */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
                 onClick={() => setIsOpen(false)}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm -z-10 md:hidden h-screen w-full"
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm h-screen w-full"
               />
 
+              {/* Left-side Drawer */}
               <motion.div
-                initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="md:hidden absolute top-[85px] inset-x-4 max-w-sm mx-auto bg-primary-dark/95 backdrop-blur-xl shadow-2xl rounded-3xl border border-white/10 overflow-hidden"
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                style={{ willChange: "transform" }}
+                className="absolute left-0 top-0 bottom-0 w-[80%] max-w-[320px] bg-primary h-screen shadow-2xl flex flex-col border-r border-white/10"
               >
-                <div className="px-4 py-8 space-y-2 flex flex-col items-center">
+                {/* Drawer Header */}
+                <div className="p-6 flex justify-between items-center border-b border-white/5">
+                  <div className="flex-shrink-0">
+                    <img src="/logo.png" alt="Janvi Infrastructure Logo" className="h-12 w-auto object-contain" />
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 text-white hover:bg-white/10 rounded-full transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <FiX size={24} />
+                  </button>
+                </div>
+
+                {/* Drawer Content */}
+                <div className="flex-1 overflow-y-auto px-4 py-8 space-y-2">
                   {navLinks.map((item) => (
                     isHome ? (
                       <ScrollLink
@@ -184,7 +225,7 @@ export default function Navbar() {
                         offset={-70}
                         duration={500}
                         onClick={() => setIsOpen(false)}
-                        className="block w-full text-center px-4 py-3 rounded-xl text-lg font-bold tracking-wide text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
+                        className="block w-full text-left px-6 py-4 rounded-xl text-lg font-bold tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5 last:border-0"
                       >
                         {item.name}
                       </ScrollLink>
@@ -193,15 +234,29 @@ export default function Navbar() {
                         key={item.name}
                         href={`/#${item.to}`}
                         onClick={() => setIsOpen(false)}
-                        className="block w-full text-center px-4 py-3 rounded-xl text-lg font-bold tracking-wide text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
+                        className="block w-full text-left px-6 py-4 rounded-xl text-lg font-bold tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 border-b border-white/5 last:border-0"
                       >
                         {item.name}
                       </NextLink>
                     )
                   ))}
                 </div>
+
+                {/* Drawer Footer */}
+                <div className="p-8 border-t border-white/5">
+                  <ScrollLink
+                    to="contact"
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full bg-secondary text-white text-center py-4 rounded-xl font-bold tracking-wider hover:bg-secondary-dark transition-all duration-300"
+                  >
+                    GET A QUOTE
+                  </ScrollLink>
+                </div>
               </motion.div>
-            </>
+            </div>
           )}
         </AnimatePresence>
       </nav>

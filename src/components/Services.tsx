@@ -72,10 +72,12 @@ export default function Services() {
       id="services"
       className="relative py-24 overflow-hidden"
     >
-      {/* Dynamic Parallax Background */}
-      <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-x-0 -top-20 -bottom-20 z-0 bg-[url('/services-image/pre-engineered/img3.jpeg')] bg-cover bg-center bg-no-repeat will-change-transform"
+      {/* Fixed Background Layer */}
+      <div
+        style={{
+          backgroundImage: "url('https://res.cloudinary.com/dec3rwvm5/image/upload/v1775203075/ser-bg_lobdzv.avif')"
+        }}
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
         aria-hidden="true"
       />
 
@@ -96,7 +98,8 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.08, ease: "easeInOut", duration: 0.4 }}
+            style={{ willChange: "transform, opacity" }}
             className="text-4xl md:text-5xl font-extrabold text-white"
           >
             Our Services
@@ -117,9 +120,10 @@ export default function Services() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -10 }}
-              className="bg-primary/95 dark:bg-slate-900/95 backdrop-blur-md rounded-xl shadow-2xl hover:shadow-[#FF4B2B]/20 transition-all duration-300 border border-white/5 group cursor-pointer relative overflow-hidden flex flex-col h-full"
+              transition={{ delay: index * 0.08, duration: 0.4, ease: "easeInOut" }}
+              whileHover={{ y: -8 }}
+              style={{ willChange: "transform, opacity" }}
+              className="bg-primary/95 dark:bg-slate-900/95 backdrop-blur-md rounded-xl shadow-2xl hover:shadow-[#FF4B2B]/20 transition-all duration-200 border border-white/5 group cursor-pointer relative overflow-hidden flex flex-col h-full"
             >
               <Link href={`/services/${service.slug}`} className="flex flex-col h-full p-8">
                 {/* Icon Container */}

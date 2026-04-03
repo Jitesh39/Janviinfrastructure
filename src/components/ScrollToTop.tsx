@@ -23,7 +23,7 @@ export default function ScrollToTop() {
 
   const scrollToTop = () => {
     scroll.scrollToTop({
-      duration: 500,
+      duration: 400,
       smooth: "easeInOutQuart",
     });
   };
@@ -35,9 +35,10 @@ export default function ScrollToTop() {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          style={{ willChange: "transform, opacity" }}
           onClick={scrollToTop}
-          className="fixed bottom-[88px] right-6 z-40 bg-primary/90 hover:bg-primary text-white p-2.5 rounded-full shadow-xl backdrop-blur-sm hover:shadow-primary/50 transition-all duration-300 flex items-center justify-center cursor-pointer border border-white/20 group"
+          className="fixed bottom-[88px] right-6 z-40 bg-primary/90 hover:bg-primary text-white p-2.5 rounded-full shadow-xl backdrop-blur-sm hover:shadow-primary/50 transition-all duration-200 flex items-center justify-center cursor-pointer border border-white/20 group"
           aria-label="Scroll to top"
         >
           <FiArrowUp className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-y-1 transition-transform duration-300" />

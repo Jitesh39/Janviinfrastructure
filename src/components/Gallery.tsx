@@ -4,26 +4,26 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
-  { image: "/services-image/Gallery/img16.jpeg" },
-  { image: "/services-image/Gallery/img10.jpeg" },
-  { image: "/services-image/Gallery/img5.jpeg" },
-  { image: "/services-image/Gallery/img8.jpeg" },
-  { image: "/services-image/Gallery/img17.jpeg" },
-  { image: "/services-image/Gallery/img18.jpeg" },
-  { image: "/services-image/Gallery/img19.jpeg" },
-  { image: "/services-image/Gallery/img20.jpeg" },
-  { image: "/services-image/Gallery/img1.jpeg" },
-  { image: "/services-image/Gallery/img2.jpeg" },
-  { image: "/services-image/Gallery/img3.jpeg" },
-  { image: "/services-image/Gallery/img4.jpeg" },
-  { image: "/services-image/Gallery/img6.jpeg" },
-  { image: "/services-image/Gallery/img7.jpeg" },
-  { image: "/services-image/Gallery/img9.jpeg" },
-  { image: "/services-image/Gallery/img11.jpeg" },
-  { image: "/services-image/Gallery/img12.jpeg" },
-  { image: "/services-image/Gallery/img13.jpeg" },
-  { image: "/services-image/Gallery/img14.jpeg" },
-  { image: "/services-image/Gallery/img15.jpeg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192228/img16_smei1f.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192214/img10_ul3l0s.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192203/img5_qq8njc.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192209/img8_evk4wl.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192231/img17_yysdpg.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192233/img18_s3xcci.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192235/img19_vnhjfp.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192238/img20_x1wvwz.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192195/img1_qqxetw.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192196/img2_pyf9ui.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192198/img3_xcltj9.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192200/img4_kezwxt.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192205/img6_es1v8t.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192207/img7_ldscgx.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192212/img9_xznord.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192217/img11_ow1cbq.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192219/img12_jgmy3p.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192221/img13_ttweeb.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192224/img14_zh011l.jpg" },
+  { image: "https://res.cloudinary.com/dec3rwvm5/image/upload/w_800,f_auto,q_auto/v1775192226/img15_kdw22t.jpg" },
 
 ];
 
@@ -60,7 +60,8 @@ export default function Gallery() {
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15, ease: "easeInOut", duration: 0.4 }}
+            style={{ willChange: "transform, opacity" }}
             className="h-1.5 w-24 bg-secondary mx-auto mt-6 rounded-full"
           ></motion.div>
         </div>
@@ -75,15 +76,17 @@ export default function Gallery() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: (index % 3) * 0.1,
-                  duration: 0.5
+                  delay: (index % 3) * 0.08,
+                  duration: 0.4,
+                  ease: "easeInOut"
                 }}
+                style={{ willChange: "transform, opacity" }}
                 className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer bg-black"
               >
                 <img
                   src={project.image}
                   alt={`Project ${index + 1}`}
-                  className="w-full h-80 object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                  className="w-full h-80 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 opacity-90 group-hover:opacity-100"
                 />
               </motion.div>
             ))}
